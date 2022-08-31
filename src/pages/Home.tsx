@@ -20,7 +20,9 @@ const Home = () => {
 		if (!stories) getStories(), [stories];
 	});
 	return stories ? (
-		<StoryList stories={stories} onRemoveStory={onRemoveStory} />
+		<section className="home">
+			<StoryList stories={stories} onRemoveStory={onRemoveStory} />
+		</section>
 	) : (
 		<Loading />
 	);
