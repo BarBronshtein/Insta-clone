@@ -1,3 +1,4 @@
+import { Story } from '../models/story.model';
 import { storageService } from './async-storage.service';
 export const storyService = {
 	query,

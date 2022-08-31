@@ -1,3 +1,5 @@
+import { MiniUser } from './mini-user.model';
+
 export interface User {
 	_id: string;
 	username: string;
