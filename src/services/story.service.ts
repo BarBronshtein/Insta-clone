@@ -88,6 +88,15 @@ async function remove(storyId: string) {
 	}
 }
 
+async function save(story: Story) {
+	try {
+		if (!story._id) return await storageService.post(STORAGE_KEY, story);
+		return await storageService.put(STORAGE_KEY, story);
+	} catch (err) {
+		console.log('Cannot save story', err);
+	}
+}
+
 function _filter(stories, filterBy) {
 	// TODO: add filter stories by user options
 	return stories;
