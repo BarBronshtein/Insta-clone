@@ -1,4 +1,4 @@
-import './App.css';
+import './assets/scss/styles.scss';
 import React from 'react';
 declare const require: any;
 function App() {
