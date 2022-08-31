@@ -72,6 +72,22 @@ async function query(filterBy = null) {
 		console.log('Cannot get stories', err);
 	}
 }
+async function getById(storyId: string) {
+	try {
+		return await storageService.get(STORAGE_KEY, storyId);
+	} catch (err) {
+		console.log('Cannot get story', err);
+	}
+}
+
+async function remove(storyId: string) {
+	try {
+		return await storageService.remove(STORAGE_KEY, storyId);
+	} catch (err) {
+		console.log('Cannot remove story', err);
+	}
+}
+
 function _filter(stories, filterBy) {
 	// TODO: add filter stories by user options
 	return stories;
