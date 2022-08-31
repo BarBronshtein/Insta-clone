@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Loading from '../components/Loading';
-import StoryList from '../components/Story-list';
+import StoryList from '../components/StoryList';
 import { Story } from '../models';
 import { storyService } from '../services/story.service';
 

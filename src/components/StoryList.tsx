@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '../models';
+import StoryPreview from './StoryPreview';
 
 const StoryList = ({ stories, onRemoveStory }) => {
 	return (
