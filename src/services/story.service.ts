@@ -1,5 +1,5 @@
 import { Story } from '../models/story.model';
-import { storageService } from './async-storage.service';
+import { Entity, storageService } from './async-storage.service';
 export const storyService = {
 	query,
 	getById,
@@ -91,8 +91,9 @@ async function remove(storyId: string) {
 
 async function save(story: Story) {
 	try {
-		if (!story._id) return await storageService.post(STORAGE_KEY, story);
-		return await storageService.put(STORAGE_KEY, story);
+		if (!story._id)
+			return await storageService.post(STORAGE_KEY, story as Entity);
+		return await storageService.put(STORAGE_KEY, story as Entity);
 	} catch (err) {
 		console.log('Cannot save story', err);
 	}
