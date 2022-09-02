@@ -4,16 +4,16 @@ const BASE_URL: string =
 	process.env.NODE_ENV === 'production' ? '/api/' : '//localhost:8000/api/';
 
 export const httpService = {
-	get(endpoint, data) {
+	get(endpoint: string, data: any) {
 		return ajax(endpoint, 'GET', data);
 	},
-	post(endpoint, data) {
+	post(endpoint: string, data: any) {
 		return ajax(endpoint, 'POST', data);
 	},
-	put(endpoint, data) {
+	put(endpoint: string, data: any) {
 		return ajax(endpoint, 'PUT', data);
 	},
-	delete(endpoint, data) {
+	delete(endpoint: string, data: any) {
 		return ajax(endpoint, 'DELETE', data);
 	},
 };
