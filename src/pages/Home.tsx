@@ -10,7 +10,7 @@ const Home = () => {
 		const stories = await storyService.query();
 		setStories(stories);
 	}, [stories]);
-	const onRemoveStory = async storyId => {
+	const onRemoveStory = async (storyId: string) => {
 		if (!stories) return;
 		await storyService.remove(storyId);
 		const updatedStories = stories.filter(story => story._id !== storyId) || null;
