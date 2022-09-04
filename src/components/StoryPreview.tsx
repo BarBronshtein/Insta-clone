@@ -25,19 +25,45 @@ const StoryPreview = ({ story, onRemoveStory }) => {
 			</section>
 			<section className="like flex">
 				<div className="like-by">
-					{story.likedBy.map(by => (
-						<AvatarPreview user={by} size={'tiny'} />
-					))}
+					{story.likedBy.map(by =>
+						user.following.some(user => user.fullname === by.name) ? (
+							<AvatarPreview user={by} size={'tiny'} />
+						) : (
+							''
+						)
+					)}
 					<p>
-						Liked by <span className="bold">{story.likedBy[0].fullname}</span>
+						Liked by{' '}
+						<span className="bold">
+							{
+								story.likedBy.find(
+									by =>
+										user.following.find(user => user.fullname === by.fullname)
+											.fullname === by.fullname
+								).fullname
+							}
+						</span>
 						and
 						<span className="bold">{story.likedBy.length} others</span>
 					</p>
 				</div>
-				<p>
-					<span className="bold">{story.by.fullname}</span>
-					<p>{story.txt}</p>
-				</p>
+			</section>
+			<div>
+				<span className="bold">{story.by.fullname}</span>
+				<p>{story.txt}</p>
+			</div>
+			<Link to={`/story/${story._id}`} className="secondary-color">
+				View all {story.comments.length} comments
+			</Link>
+			<div className="upload-time">
+				<span>{utilService.formattedTime(story.createdAt)}</span>
+			</div>
+			<section className="add-comment flex">
+				<form>
+					{/* Emoji-Icon */}
+					<textarea name="add-comment"></textarea>
+					<span className="active-color">Post</span>
+				</form>
 			</section>
 		</article>
 	);
