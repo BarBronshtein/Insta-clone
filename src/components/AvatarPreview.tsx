@@ -1,7 +1,7 @@
 import React from 'react';
-import { User } from '../models';
+import { MiniUser } from '../models';
 
-const AvatarPreview = ({ user, size }: { user: User; size: string }) => {
+const AvatarPreview = ({ user, size }: { user: MiniUser; size: string }) => {
 	return <img src={`${user.imgUrl}`} className={`avatar-${size}`} alt="" />;
 };
 
