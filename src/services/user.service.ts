@@ -1,4 +1,6 @@
-export const userService = {};
+export const userService = {
+	getLoggedinUser,
+};
 const user = {
 	_id: 'u101',
 	username: 'Muko',
@@ -22,5 +24,11 @@ const user = {
 	],
 	savedStoryIds: ['s104', 's111', 's123'],
 };
+const LOGGEDIN_USER = 'loggedinUser';
 const STORAGE_KEY = 'userDB';
 localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+localStorage.setItem(LOGGEDIN_USER, JSON.stringify(user));
+
+function getLoggedinUser() {
+	return JSON.parse(localStorage.getItem(LOGGEDIN_USER) || 'null');
+}
