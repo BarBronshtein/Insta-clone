@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { userService } from '../services/user.service';
 import { utilService } from '../services/util.service';
 import AvatarPreview from './AvatarPreview';
 
 const StoryPreview = ({ story, onRemoveStory }) => {
-	const user=
+	const user = userService.getLoggedinUser();
 	return (
 		<article
 			className="story-preview story-layout"
