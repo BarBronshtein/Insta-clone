@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AvatarPreview from './AvatarPreview';
 
 const StoryPreview = ({ story, onRemoveStory }) => {
+	const user=
 	return (
 		<article
 			className="story-preview story-layout"
