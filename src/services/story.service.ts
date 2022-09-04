@@ -64,6 +64,9 @@ const story = {
 	],
 	tags: ['fun', 'kids'],
 };
+
+localStorage.setItem(STORAGE_KEY, JSON.stringify(story));
+
 async function query(filterBy = null) {
 	try {
 		const stories = await storageService.query(STORAGE_KEY);
