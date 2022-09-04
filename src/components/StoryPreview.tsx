@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { utilService } from '../services/util.service';
 import AvatarPreview from './AvatarPreview';
 
 const StoryPreview = ({ story, onRemoveStory }) => {
@@ -57,7 +58,7 @@ const StoryPreview = ({ story, onRemoveStory }) => {
 				View all {story.comments.length} comments
 			</Link>
 			<div className="upload-time">
-				<span>{utilService.formattedTime(story.createdAt)}</span>
+				<span>{utilService.timeAgo(story.createdAt)}</span>
 			</div>
 			<section className="add-comment flex">
 				<form>
