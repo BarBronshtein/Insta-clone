@@ -39,21 +39,22 @@ const StoryPreview = ({ story, onRemoveStory }) => {
 						Liked by{' '}
 						<span className="bold">
 							{
-								story.likedBy.find(
-									by =>
-										user.following.find(user => user.fullname === by.fullname)
-											.fullname === by.fullname
-								).fullname
+								story.likedBy.find(by => {
+									const found = user.following.find(
+										user => user.fullname === by.fullname
+									);
+
+									return found ? found.fullname === by.fullname : '';
+								}).fullname
 							}
-						</span>
-						and
-						<span className="bold">{story.likedBy.length} others</span>
+						</span>{' '}
+						and <span className="bold">{story.likedBy.length} others</span>
 					</p>
 				</div>
 			</section>
 			<div>
-				<span className="bold">{story.by.fullname}</span>
-				<p>{story.txt}</p>
+				<span className="bold">{story.by.fullname} </span>
+				<span>{story.txt}</span>
 			</div>
 			<Link to={`/story/${story._id}`} className="secondary-color">
 				View all {story.comments.length} comments

@@ -26,7 +26,8 @@ const user = {
 };
 const LOGGEDIN_USER = 'loggedinUser';
 const STORAGE_KEY = 'userDB';
-localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+const users = [user];
+localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
 localStorage.setItem(LOGGEDIN_USER, JSON.stringify(user));
 
 function getLoggedinUser() {

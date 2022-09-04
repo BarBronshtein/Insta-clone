@@ -64,8 +64,8 @@ const story = {
 	],
 	tags: ['fun', 'kids'],
 };
-
-localStorage.setItem(STORAGE_KEY, JSON.stringify(story));
+const stories = [story];
+localStorage.setItem(STORAGE_KEY, JSON.stringify(stories));
 
 async function query(filterBy = null) {
 	try {
