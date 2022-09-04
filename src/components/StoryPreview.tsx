@@ -9,7 +9,8 @@ const StoryPreview = ({ story, onRemoveStory }) => {
 	return (
 		<article
 			className="story-preview story-layout"
-			onClick={() => onRemoveStory()}
+			// onClick={() => onRemoveStory(story._id)
+			// }
 		>
 			<section className="flex justify-between">
 				<div className="flex">
